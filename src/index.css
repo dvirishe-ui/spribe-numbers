@@ -1,0 +1,312 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * SPRIBE Partner Promo Hub design system.
+ * Dark-first, premium B2B gaming. All colors in oklch, all semantic.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* SPRIBE brand */
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+
+  /* promo type palette */
+  --color-type-tournament: var(--type-tournament);
+  --color-type-crossgame: var(--type-crossgame);
+  --color-type-missions: var(--type-missions);
+  --color-type-leaderboard: var(--type-leaderboard);
+  --color-type-collection: var(--type-collection);
+  --color-type-regional: var(--type-regional);
+  --color-type-seasonal: var(--type-seasonal);
+  --color-type-launch: var(--type-launch);
+
+  /* status palette */
+  --color-status-live: var(--status-live);
+  --color-status-registration: var(--status-registration);
+  --color-status-upcoming: var(--status-upcoming);
+  --color-status-ending: var(--status-ending);
+  --color-status-completed: var(--status-completed);
+
+  /* participation palette */
+  --color-participation-none: var(--participation-none);
+  --color-participation-sent: var(--participation-sent);
+  --color-participation-review: var(--participation-review);
+  --color-participation-confirmed: var(--participation-confirmed);
+
+  /* results charts: before/during/after period palette + uplift diverging pair */
+  --color-period-before: var(--period-before);
+  --color-period-during: var(--period-during);
+  --color-period-after: var(--period-after);
+  --color-uplift-positive: var(--uplift-positive);
+  --color-uplift-negative: var(--uplift-negative);
+
+  --shadow-panel: 0 24px 60px -24px oklch(0 0 0 / 0.7);
+  --shadow-glow: 0 0 0 1px oklch(0.74 0.19 45 / 0.4), 0 12px 40px -16px oklch(0.74 0.19 45 / 0.4);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Warm charcoal neutrals (hue ~55, low chroma) — no navy/blue anywhere in the neutral scale */
+  --background: oklch(0.155 0.008 55);
+  --foreground: oklch(0.92 0.016 75);
+  --surface: oklch(0.2 0.01 55);
+  --surface-raised: oklch(0.25 0.012 55);
+
+  --card: oklch(0.215 0.011 55);
+  --card-foreground: oklch(0.92 0.016 75);
+  --popover: oklch(0.195 0.01 55);
+  --popover-foreground: oklch(0.92 0.016 75);
+
+  /* SPRIBE brand identity: signature vibrant orange over warm charcoal, echoing Aviator's flame trail */
+  --brand: oklch(0.74 0.19 45);
+  --brand-2: oklch(0.62 0.24 20);
+
+  --primary: oklch(0.74 0.19 45);
+  --primary-foreground: oklch(0.18 0.03 40);
+  --secondary: oklch(0.27 0.012 55);
+  --secondary-foreground: oklch(0.93 0.014 75);
+  --muted: oklch(0.245 0.01 55);
+  --muted-foreground: oklch(0.68 0.016 60);
+  --accent: oklch(0.82 0.15 85);
+  --accent-foreground: oklch(0.19 0.03 60);
+  --destructive: oklch(0.63 0.22 22);
+  --destructive-foreground: oklch(0.98 0.008 75);
+
+  --border: oklch(0.33 0.014 55);
+  --input: oklch(0.3 0.014 55);
+  --ring: oklch(0.74 0.19 45);
+
+  --type-tournament: oklch(0.7 0.2 8);
+  --type-crossgame: oklch(0.74 0.16 300);
+  --type-missions: oklch(0.8 0.16 145);
+  --type-leaderboard: oklch(0.78 0.15 235);
+  --type-collection: oklch(0.76 0.15 210);
+  --type-regional: oklch(0.8 0.15 175);
+  --type-seasonal: oklch(0.76 0.17 330);
+  --type-launch: oklch(0.85 0.17 115);
+
+  --status-live: oklch(0.78 0.19 145);
+  --status-registration: oklch(0.82 0.16 195);
+  --status-upcoming: oklch(0.7 0.02 60);
+  --status-ending: oklch(0.8 0.17 65);
+  --status-completed: oklch(0.55 0.014 60);
+
+  --participation-none: oklch(0.62 0.014 60);
+  --participation-sent: oklch(0.8 0.15 85);
+  --participation-review: oklch(0.78 0.15 235);
+  --participation-confirmed: oklch(0.78 0.19 145);
+
+  /* Results charts: Before/During/After, validated CVD-safe triad (dark L 0.48-0.67 band) */
+  --period-before: oklch(0.6 0.14 235);
+  --period-during: oklch(0.62 0.19 45);
+  --period-after: oklch(0.62 0.17 330);
+  --uplift-positive: oklch(0.62 0.17 150);
+  --uplift-negative: oklch(0.62 0.19 25);
+}
+
+/* Light mode: same SPRIBE orange identity, warm off-white surfaces instead of charcoal. */
+:root.light {
+  --background: oklch(0.985 0.006 75);
+  --foreground: oklch(0.22 0.02 55);
+  --surface: oklch(0.998 0.003 75);
+  --surface-raised: oklch(0.955 0.009 70);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 55);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 55);
+
+  --brand: oklch(0.6 0.2 40);
+  --brand-2: oklch(0.52 0.22 20);
+
+  --primary: oklch(0.58 0.2 40);
+  --primary-foreground: oklch(0.99 0.004 75);
+  --secondary: oklch(0.94 0.008 70);
+  --secondary-foreground: oklch(0.26 0.02 55);
+  --muted: oklch(0.95 0.007 70);
+  --muted-foreground: oklch(0.47 0.02 60);
+  --accent: oklch(0.52 0.15 85);
+  --accent-foreground: oklch(0.99 0.006 80);
+  --destructive: oklch(0.53 0.22 25);
+  --destructive-foreground: oklch(0.99 0.006 75);
+
+  --border: oklch(0.89 0.012 60);
+  --input: oklch(0.92 0.01 60);
+  --ring: oklch(0.58 0.2 40);
+
+  --type-tournament: oklch(0.52 0.19 8);
+  --type-crossgame: oklch(0.53 0.16 300);
+  --type-missions: oklch(0.46 0.15 145);
+  --type-leaderboard: oklch(0.5 0.14 235);
+  --type-collection: oklch(0.48 0.14 210);
+  --type-regional: oklch(0.45 0.13 175);
+  --type-seasonal: oklch(0.52 0.17 330);
+  --type-launch: oklch(0.46 0.15 115);
+
+  --status-live: oklch(0.45 0.15 145);
+  --status-registration: oklch(0.47 0.13 195);
+  --status-upcoming: oklch(0.48 0.02 60);
+  --status-ending: oklch(0.52 0.16 65);
+  --status-completed: oklch(0.55 0.014 60);
+
+  --participation-none: oklch(0.55 0.014 60);
+  --participation-sent: oklch(0.52 0.14 85);
+  --participation-review: oklch(0.5 0.14 235);
+  --participation-confirmed: oklch(0.45 0.15 145);
+
+  /* Results charts: Before/During/After, validated CVD-safe triad (light L 0.43-0.77 band) */
+  --period-before: oklch(0.5 0.15 235);
+  --period-during: oklch(0.55 0.19 45);
+  --period-after: oklch(0.5 0.17 330);
+  --uplift-positive: oklch(0.5 0.15 150);
+  --uplift-negative: oklch(0.5 0.17 25);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  /*
+   * A modest bump from the browser default 16px so every rem-based Tailwind
+   * size (headings, body copy, buttons, form fields) scales up together.
+   */
+  html {
+    font-size: 106%;
+  }
+
+  html,
+  body {
+    /*
+     * !important here is deliberate: some embedding hosts inject their own
+     * unlayered <style> reset on html/body (e.g. a light background + dark
+     * text) directly in <head>, ahead of this stylesheet. Cascade layers
+     * always lose to unlayered rules regardless of source order or
+     * specificity, so a plain override here would silently lose to that
+     * injected reset. !important is the one thing that reliably wins.
+     */
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(1100px 600px at 8% -12%, oklch(0.74 0.19 45 / 0.18), transparent 65%),
+      radial-gradient(900px 520px at 96% -6%, oklch(0.62 0.24 20 / 0.14), transparent 65%),
+      radial-gradient(800px 500px at 50% 110%, oklch(0.82 0.15 85 / 0.07), transparent 70%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+@utility brand-gradient-text {
+  background-image: linear-gradient(90deg, var(--color-brand), var(--color-brand-2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility brand-surface {
+  position: relative;
+  background:
+    linear-gradient(150deg, oklch(0.74 0.19 45 / 0.16), transparent 55%),
+    linear-gradient(330deg, oklch(0.62 0.24 20 / 0.12), transparent 55%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+/* Faint rising flight-trail motif echoing Aviator's climbing multiplier curve, used as a background accent */
+@utility flight-trail {
+  background-image: radial-gradient(circle at 14% 82%, oklch(0.74 0.19 45 / 0.55) 0, transparent 2.5px),
+    radial-gradient(circle at 30% 62%, oklch(0.74 0.19 45 / 0.42) 0, transparent 2.5px),
+    radial-gradient(circle at 48% 46%, oklch(0.76 0.2 35 / 0.34) 0, transparent 2.5px),
+    radial-gradient(circle at 68% 30%, oklch(0.78 0.2 28 / 0.26) 0, transparent 2.5px),
+    radial-gradient(circle at 88% 14%, oklch(0.8 0.19 20 / 0.18) 0, transparent 2.5px);
+}
+
+/* Click-to-launch plane in the games showcase, climbing away like an Aviator round taking off. */
+@keyframes plane-takeoff {
+  0% {
+    transform: translate(0, 0) rotate(-40deg) scale(1);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(70px, -95px) rotate(-40deg) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(130px, -170px) rotate(-40deg) scale(0.85);
+    opacity: 0;
+  }
+}
+
+@utility animate-plane-takeoff {
+  animation: plane-takeoff 1.1s cubic-bezier(0.25, 0.6, 0.35, 1) forwards;
+}
